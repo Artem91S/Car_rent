@@ -108,7 +108,7 @@ function CarList() {
           ))}
        
         <CarModal selectCar={selectCar} setShowSuccess={setShowSuccess} />
-        {!showSuccess && <Realistic />}
+        {showSuccess && <Realistic />}
       </div>
       
     </div>
