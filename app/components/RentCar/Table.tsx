@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react'
-import {  useTable } from 'react-table'
+import {  useTable,  useSortBy, } from 'react-table'
+import { LongArrowBottomIcon, LongArrowTopIcon } from '../icons/LongArrowTopIcon';
+import { FilterArrowsIcon } from '../icons/FilterArrowsIcon';
 
 type Column={
     Header:string;
@@ -17,12 +19,13 @@ export const Table = <D extends object>({ columns, data }: Props<D>) => {
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    rows,
+    rows
   } = useTable(
     {
       columns,
       data,
-    }
+    },
+    useSortBy
   )
 
   return (
@@ -39,7 +42,7 @@ export const Table = <D extends object>({ columns, data }: Props<D>) => {
               <tr key={key} {...restProps}>
                 {headerGroup.headers.map((column) => {
                   const { key: headerKey, ...headerRestProps } =
-                    column.getHeaderProps()
+                    column.getHeaderProps(column.getSortByToggleProps())
 
                   return (
                     <th
@@ -49,7 +52,23 @@ export const Table = <D extends object>({ columns, data }: Props<D>) => {
                         'px-6 py-3 text-[12px] text-center font-medium uppercase tracking-wider text-gray-500'
                       }
                     >
-                      {column.render('Header')}
+                      {column.canSort ? (
+                    <div className='flex gap-4 justify-center ' >
+                     {column.render('Header')}
+                      {column.isSorted ? (
+                        column.isSortedDesc ? (
+                          
+                          <LongArrowTopIcon  />
+                        ) : (
+                          <LongArrowBottomIcon />
+                        )
+                      ) : (
+                        <FilterArrowsIcon />
+                      )}
+                    </div>
+                  ) : 
+                      column.render('Header')}
+                      {/* {column.render('Header')} */}
                     </th>
                   )
                 })}

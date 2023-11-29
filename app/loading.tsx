@@ -6,7 +6,7 @@ function Loading() {
   return (
     <div className="h-[50vh] flex justify-center items-center">
     <RotatingLines
-      strokeColor="grey"
+      strokeColor="#2563eb"
       strokeWidth="5"
       animationDuration="0.75"
       width="96"

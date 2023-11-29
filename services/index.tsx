@@ -73,6 +73,9 @@ export const createBocking = async (formValue: any) => {
           carName: "` +
     formValue.carName +
     `"
+    userName: "` +
+    formValue.userName +
+    `"
         }
       ) {
         id
@@ -98,6 +101,7 @@ export const getBookings = async () => {
         carName
         dropOffTime
         pickUpTime
+        userName
       }
     }
   `;

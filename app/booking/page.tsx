@@ -15,6 +15,7 @@ const columns = [
   {
     Header: "Pick Up Time",
     accessor: "pickUpTime",
+
   },
   {
     Header: "Pick Up Date",
@@ -33,6 +34,11 @@ const columns = [
   {
     Header: "Contact Number",
     accessor: "contactNumber",
+  },
+  {
+    Header: "Client Name",
+    accessor: "userName",
+
   },
 ];
 

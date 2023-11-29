@@ -28,6 +28,7 @@ export default function Form({ selectCar,setShowSuccess }: PropsType) {
     pickUpTime: "",
     contactNumber: "",
     carName: "",
+    userName:""
   });
 
   useEffect(() => {
@@ -86,7 +87,6 @@ export default function Form({ selectCar,setShowSuccess }: PropsType) {
           <label className="text-gray-400">Pick Up Date</label>
           <input
             type="date"
-            // min={today}
             onChange={handleChange}
             placeholder="Type here"
             name="pickUpDate"
@@ -134,6 +134,17 @@ export default function Form({ selectCar,setShowSuccess }: PropsType) {
           placeholder="Type here"
           onChange={handleChange}
           name="contactNumber"
+          className="input input-bordered w-full max-w-lg border-b-[1px] p-2 sm:p-1 outline-none"
+        />
+      </div>
+      <div className="flex flex-col w-full mb-5">
+        <label className="text-gray-400">Contact Number</label>
+        <input
+          required
+          type="text"
+          placeholder="Your name"
+          onChange={handleChange}
+          name="userName"
           className="input input-bordered w-full max-w-lg border-b-[1px] p-2 sm:p-1 outline-none"
         />
       </div>
